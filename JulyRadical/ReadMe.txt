@@ -193,4 +193,56 @@ Day-3
         }
       
 
+	  
+            
+
+			
+            //Jagged array--array of an array
+            int[][] arrJagged = new int[3][];
+            arrJagged[0] = new int[3];
+            arrJagged[1] = new int[4];
+            arrJagged[2] = new int[1];
+
+            Console.WriteLine("Enter values for jagged");
+
+            for (int i = 0; i < arrJagged.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrJagged[i].Length; j++)
+                {
+                    arrJagged[i][j] = Convert.ToInt32(Console.ReadLine());
+                    
+                }
+            }
+
+
+            Console.WriteLine("values for jagged");
+
+            for (int i = 0; i < arrJagged.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrJagged[i].Length; j++)
+                {
+                    Console.WriteLine(arrJagged[i][j]);
+                }
+            }
+
+
+
+
+
+			
+            string s = null;
+            int? x = null;//db--age--null---break
+            x = 10;
+            int y = x ?? 1;//when x is null y=1---x is not null then give the value x directly to y
+
+
+
+			
+            ///Boxing vs unboxing
+            
+            int i=1;
+            Object o = i;
+
+            //when you extract the primitive from reference type then it is unboxing
+            int y = (int)o; 
 
