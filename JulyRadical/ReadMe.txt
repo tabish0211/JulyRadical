@@ -246,3 +246,191 @@ Day-3
             //when you extract the primitive from reference type then it is unboxing
             int y = (int)o; 
 
+
+
+
+
+
+
+			    class User
+    {
+        public string passwordAsPublic;
+        private string password;
+
+        void show()
+        {
+            password = "xyz";
+        }
+    }
+
+
+	static void Main(string[] args)
+        {
+
+            User obj = new User();
+            Console.WriteLine(obj.passwordAsPublic);
+           // Console.WriteLine(password);
+
+            Console.ReadLine();
+
+        }
+
+
+
+
+
+
+
+		 class User
+    {
+       
+        // private string _password;
+
+        //public void SetPassword(string pswd)
+        //{
+        //    password = pswd;
+        //}
+
+        //public string GetPassword()
+        //{
+        //    return password;
+        //}
+
+        //properties--C# 2.0
+        //properties-Encapsulation
+
+         //public string Password
+         //{
+         //    set {
+         //        _password = value;
+         //    }
+             
+         //    get {
+
+         //        return _password;
+         //    }
+
+         //}
+
+
+        public string Password { get; set; }
+
+
+
+
+    }
+
+
+
+
+	 static void Main(string[] args)
+        {
+
+            User obj = new User();
+          //  Console.WriteLine(obj.passwordAsPublic);
+           // Console.WriteLine(password);
+            string password = "welcome";
+          //  obj.SetPassword(password);
+            //string str=obj.GetPassword();
+
+            obj.Password = password;//set block of the property
+
+            Console.WriteLine(obj.Password);
+
+
+            Console.ReadLine();
+
+        }
+
+
+
+		class User
+    {
+        private int _id;
+        private string _uname;
+        private string _companyName;
+
+
+        //constructor overloading
+        public User(int id ,string uname)
+        {
+            this._id = id;
+            this._uname = uname;
+
+
+        }
+
+        public User(int id, string uname,string cnm): this(id, uname)
+        {
+            
+            this._companyName = cnm;
+
+
+        }
+
+
+        public void Show()
+        {
+            Console.WriteLine(_id+" "+_uname);
+        
+        }
+
+        ~User()
+        { 
+            //parameters---CLR--calls the destructor
+          //native os --filestream---resource free--destructor
+          //we cant call destructor--CLR--Syste.GC--Claims memory--destroy
+        
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+	class Student
+    {
+       // private const int _count=40;
+        private readonly int _count;
+        public Student(int count)
+        {
+            //constructor
+            _count = count;
+        }
+
+        public void Show()
+        {
+            Console.WriteLine(_count);
+        }
+
+        public void AllocateStudent(int count)
+        {
+
+          //this._count = count;
+        
+        }
+    
+    }
+
+
+
+
+
+
+
+	 static void Main(string[] args)
+        {
+
+            var s = new Student(60);
+            s.AllocateStudent(30);
+            s.Show();
+            Console.ReadLine();
+
+        }
