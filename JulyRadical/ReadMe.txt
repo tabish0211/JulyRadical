@@ -434,3 +434,256 @@ Day-3
             Console.ReadLine();
 
         }
+
+
+
+		static void Main(string[] args)
+        {
+            //var customer = new Customer();
+            //int disc=customer.Discount();
+            //Console.WriteLine("base customer: "+disc);
+
+            var goldCustomer = new GoldCustomer("James","1");
+            int disc=goldCustomer.Discount();
+            Console.WriteLine("Gold Customer "+disc);
+
+            Console.ReadLine();
+
+        }
+
+
+
+
+		 class Customer
+    {
+        private string _custName;
+        public Customer(string custName)
+        {
+            this._custName = custName;
+            Console.WriteLine("Hey i am from base customer");
+        }
+
+        //method overriding---true polymorphism
+        public virtual int Discount()
+        {             
+
+            return 10;
+        
+        }
+    
+    }
+
+    //base to child in constructor---destructor--child to base
+    class GoldCustomer : Customer
+    {
+       // private string _goldCustName;
+        private string _planType;
+
+        public GoldCustomer(string custName,string plantype):base(custName)
+        {
+            //this._goldCustName = custName;
+            this._planType = plantype;
+            Console.WriteLine("Hey i am from gold customer");
+        }
+        public override int Discount()
+        {
+            return (5+base.Discount());
+        }
+    }
+    
+
+
+
+
+
+
+
+	 //Material---XYZ
+    abstract class Hardware
+    {
+        public void ShowCopyRight()
+        {
+            Console.WriteLine("This is a copyright");
+
+        }
+        public abstract void HardwareName();
+    }
+
+    class Iphone:Hardware
+    {
+        public override void HardwareName()
+        {
+            Console.WriteLine("This is iphone");
+
+        }
+    }
+
+    class SamSung : Hardware
+    {
+        public override void HardwareName()
+        {
+            Console.WriteLine("This is Samsung");
+
+        }
+    }
+
+
+
+	 Hardware iphone = new Iphone();
+            iphone.HardwareName();
+            iphone.ShowCopyRight();
+
+            Hardware samsung = new SamSung();
+            samsung.HardwareName();
+            samsung.ShowCopyRight();
+
+            //Hardware hardware = new Hardware();
+           // hardware.HadwareName();
+
+
+
+		    public static class InstanceFactory{
+
+        public static IDBReadingOperations CreateReadingInstance()
+        {
+
+            IDBReadingOperations obj = new MyOracleDataBaseOperations();
+            return obj;
+        }
+
+        public static IDBWritingOperations CreateWritingInstance()
+        {
+
+            IDBWritingOperations obj = new MyOracleDataBaseOperations();
+            return obj;
+        }
+    
+    }
+
+
+
+    public interface IDBWritingOperations
+    {
+
+         void Add();
+         void Update();
+         void Delete();
+         void xyz();
+
+    }
+
+    //Interface is a contract---for the client--abstarction over the class
+    public interface IDBReadingOperations
+    {
+
+        void Fetch();
+        void xyz();
+
+    }
+
+    public class MyOracleDataBaseOperations : IDBReadingOperations, IDBWritingOperations
+    {
+        public void IDBReadingOperations.xyz()
+        { }
+
+        public void IDBWritingOperations.xyz()
+        { }
+        public void Fetch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void test()
+        { }
+    }
+
+
+    public class MySqlServerDataBaseOperations : IDBReadingOperations, IDBWritingOperations
+    {
+
+
+        public void Fetch()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+
+	 static void Main(string[] args)
+        {
+
+
+            var obj=InstanceFactory.CreateReadingInstance();
+            obj.Fetch();
+            obj.xyz();
+
+            var objWriting = InstanceFactory.CreateWritingInstance();
+            objWriting.Add();
+
+            
+            Console.ReadLine();
+
+        }
+
+
+
+
+
+		class A
+    { 
+    
+    }
+
+   sealed class B : A
+    {
+
+
+
+    }
+
+    class c : B { 
+    
+    
+    }
+
+
+
+
+
+
+	
+            int x = 1;
+            int y = ++x + x++ + ++x;
+            Console.WriteLine(y);//
+            Console.WriteLine(x);//

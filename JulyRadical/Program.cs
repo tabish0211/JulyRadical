@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,36 @@ namespace JulyRadical
     {
         static void Main(string[] args)
         {
-            //var customer = new Customer();
-            //int disc=customer.Discount();
-            //Console.WriteLine("base customer: "+disc);
 
-            var goldCustomer = new GoldCustomer("James","1");
-            int disc=goldCustomer.Discount();
-            Console.WriteLine("Gold Customer "+disc);
+           // Developers d = new Developers();
+            
+            //ArrayList
+            //Any Type of DataType
+            ArrayList arr = new ArrayList();
+            arr.Add(101);//int --Object
+            arr.Add("Rakesh");
+
+            Student s = new Student();
+            s.ID = 201;
+            s.Name = "Ramesh";
+
+            arr.Add(s);
+
+            //item--single
+            foreach (var item in arr)
+            {
+                if (item.GetType().Name.Equals("Student"))
+                {
+                    var myobj=item as Student;
+                    Console.WriteLine(myobj.ID+" "+myobj.Name);
+                }
+
+                else
+                {
+                    Console.WriteLine(item);
+                }
+                
+            }
 
             Console.ReadLine();
 
@@ -24,44 +48,30 @@ namespace JulyRadical
                
     }
 
-    class Customer
+    class Student
     {
-        private string _custName;
-        public Customer(string custName)
-        {
-            this._custName = custName;
-            Console.WriteLine("Hey i am from base customer");
-        }
 
-        //method overriding---true polymorphism
-        public virtual int Discount()
-        {             
-
-            return 10;
-        
-        }
-    
-    }
-
-    //base to child in constructor---destructor--child to base
-    class GoldCustomer : Customer
-    {
-       // private string _goldCustName;
-        private string _planType;
-
-        public GoldCustomer(string custName,string plantype):base(custName)
-        {
-            //this._goldCustName = custName;
-            this._planType = plantype;
-            Console.WriteLine("Hey i am from gold customer");
-        }
-        public override int Discount()
-        {
-            return (5+base.Discount());
-        }
-    }
+        public int ID { get; set; }
+        public string Name { get; set; }
     
 
+    }
 
+
+    //class Teacher---TID,Tname----
+    //STudent Record:
+    //101 ramesh
+    //102 Rakesh
+
+    //Teacher Records
+    //201 James
+    //202 Maya
+
+
+    
+
+    
+
+   
    
 }
