@@ -3,3 +3,4 @@ D:\Madiha\JulyRadical\JulyRadical\bin\Debug\JulyRadical.exe
 D:\Madiha\JulyRadical\JulyRadical\bin\Debug\JulyRadical.pdb
 D:\Madiha\JulyRadical\JulyRadical\obj\Debug\JulyRadical.exe
 D:\Madiha\JulyRadical\JulyRadical\obj\Debug\JulyRadical.pdb
+D:\Madiha\JulyRadical\JulyRadical\obj\Debug\JulyRadical.csprojResolveAssemblyReference.cache

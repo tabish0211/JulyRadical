@@ -687,3 +687,54 @@ Day-3
             int y = ++x + x++ + ++x;
             Console.WriteLine(y);//
             Console.WriteLine(x);//
+
+
+
+
+
+
+
+			       // Developers d = new Developers();
+            
+            //ArrayList
+            //Any Type of DataType
+            ArrayList arr = new ArrayList();
+            arr.Add(101);//int --Object
+            arr.Add("Rakesh");
+
+            Student s = new Student();
+            s.ID = 201;
+            s.Name = "Ramesh";
+
+            arr.Add(s);
+
+            //item--single
+            foreach (var item in arr)
+            {
+                if (item.GetType().Name.Equals("Student"))
+                {
+                    var myobj=item as Student;
+                    Console.WriteLine(myobj.ID+" "+myobj.Name);
+                }
+
+                else
+                {
+                    Console.WriteLine(item);
+                }
+                
+            }
+
+
+
+
+
+			
+    //class Teacher---TID,Tname----
+    //STudent Record:
+    //101 ramesh
+    //102 Rakesh
+
+    //Teacher Records
+    //201 James
+    //202 Maya
+

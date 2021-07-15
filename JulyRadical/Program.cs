@@ -11,36 +11,61 @@ namespace JulyRadical
     {
         static void Main(string[] args)
         {
+            List<Student> students = new List<Student>();
+            Student student_one = new Student();
+            student_one.ID = 101;
+            student_one.Name = "Rakesh";
 
-           // Developers d = new Developers();
-            
-            //ArrayList
-            //Any Type of DataType
-            ArrayList arr = new ArrayList();
-            arr.Add(101);//int --Object
-            arr.Add("Rakesh");
+            Student student_two = new Student();
+            student_two.ID = 102;
+            student_two.Name = "Ramesh";
 
-            Student s = new Student();
-            s.ID = 201;
-            s.Name = "Ramesh";
+            Student student_three = new Student();
+            student_three.ID = 103;
+            student_three.Name = "James";
 
-            arr.Add(s);
+            Student student_four = new Student();
+            student_four.ID = 104;
+            student_four.Name = "Maya";
 
-            //item--single
-            foreach (var item in arr)
+            Student student_five = new Student();
+            student_five.ID = 105;
+            student_five.Name = "Kunal";
+
+            students.Add(student_one);
+            students.Add(student_two);
+            students.Add(student_three);
+            students.Add(student_four);
+            students.Add(student_five);
+
+            //All records
+            foreach (Student item in students)
             {
-                if (item.GetType().Name.Equals("Student"))
-                {
-                    var myobj=item as Student;
-                    Console.WriteLine(myobj.ID+" "+myobj.Name);
-                }
-
-                else
-                {
-                    Console.WriteLine(item);
-                }
-                
+                Console.WriteLine(item.ID +" "+item.Name);
             }
+
+            //LINQ--Language Integrated Query---
+            int count = students.Count();
+            Console.WriteLine(count); 
+
+           // Student result=students.Where(s=>s.ID== )
+            var resul = students.Where(s => s.ID == 101).ToList();
+
+            foreach (var item in resul)
+            {
+                Console.WriteLine(item.ID + " " + item.Name);
+            }
+
+            var resultWithName = students.Where(s => s.Name.Contains("R")).ToList();
+
+
+
+           
+
+            Console.WriteLine();
+
+
+    
 
             Console.ReadLine();
 
@@ -53,19 +78,12 @@ namespace JulyRadical
 
         public int ID { get; set; }
         public string Name { get; set; }
+
+
     
 
     }
 
-
-    //class Teacher---TID,Tname----
-    //STudent Record:
-    //101 ramesh
-    //102 Rakesh
-
-    //Teacher Records
-    //201 James
-    //202 Maya
 
 
     
