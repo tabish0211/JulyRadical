@@ -738,3 +738,139 @@ Day-3
     //201 James
     //202 Maya
 
+
+
+
+
+
+
+	  List<Student> students = new List<Student>();
+            Student student_one = new Student();
+            student_one.ID = 101;
+            student_one.Name = "Rakesh";
+
+            Student student_two = new Student();
+            student_two.ID = 102;
+            student_two.Name = "Ramesh";
+
+            Student student_three = new Student();
+            student_three.ID = 103;
+            student_three.Name = "James";
+
+            Student student_four = new Student();
+            student_four.ID = 104;
+            student_four.Name = "Maya";
+
+            Student student_five = new Student();
+            student_five.ID = 105;
+            student_five.Name = "Kunal";
+
+            students.Add(student_one);
+            students.Add(student_two);
+            students.Add(student_three);
+            students.Add(student_four);
+            students.Add(student_five);
+
+            //All records
+            foreach (Student item in students)
+            {
+                Console.WriteLine(item.ID +" "+item.Name);
+            }
+
+            //LINQ--Language Integrated Query---
+            int count = students.Count();
+            Console.WriteLine(count); 
+
+           // Student result=students.Where(s=>s.ID== )
+            var resul = students.Where(s => s.ID == 101).ToList();
+
+            foreach (var item in resul)
+            {
+                Console.WriteLine(item.ID + " " + item.Name);
+            }
+
+            var resultWithName = students.Where(s => s.Name.Contains("R")).ToList();
+
+            //calculate--maxid
+            //maxid--where-si,id==maxid
+            //Select--
+            //students--ID,Name
+            //newCOllection---ID
+            var maxId = students.Select(s => s.ID).Max();
+
+            var myStudent = students.Where(s => s.ID == maxId).FirstOrDefault();           
+
+            Console.WriteLine(); 
+
+
+
+
+
+
+			 class Student
+    {
+
+        public int ID { get; set; }
+        public string Name { get; set; }
+
+
+    
+
+    }
+
+
+
+
+	//is keyword--Compatiblity b/w the two reference variable
+
+            Object o = 1;//"Hello wolrd";
+
+            if (o is string)
+            {
+                Console.WriteLine("o is type of string");
+            }
+
+            else
+            {
+                Console.WriteLine("sorry o is not string type");
+            }
+
+
+
+
+
+
+			///
+			
+            B obj = new B();
+            obj.xyz();//from b
+
+            A obj1 = new B();
+            obj1.xyz();//from A
+
+
+
+			
+    class A {
+
+
+        public virtual void xyz()
+        {
+
+            Console.WriteLine("I am from A");
+        
+        }
+    
+    
+    }
+
+
+    class B : A {
+
+        public new void xyz()
+        {
+            Console.WriteLine("this is from B");
+            
+        }
+    
+    }

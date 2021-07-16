@@ -11,61 +11,8 @@ namespace JulyRadical
     {
         static void Main(string[] args)
         {
-            List<Student> students = new List<Student>();
-            Student student_one = new Student();
-            student_one.ID = 101;
-            student_one.Name = "Rakesh";
-
-            Student student_two = new Student();
-            student_two.ID = 102;
-            student_two.Name = "Ramesh";
-
-            Student student_three = new Student();
-            student_three.ID = 103;
-            student_three.Name = "James";
-
-            Student student_four = new Student();
-            student_four.ID = 104;
-            student_four.Name = "Maya";
-
-            Student student_five = new Student();
-            student_five.ID = 105;
-            student_five.Name = "Kunal";
-
-            students.Add(student_one);
-            students.Add(student_two);
-            students.Add(student_three);
-            students.Add(student_four);
-            students.Add(student_five);
-
-            //All records
-            foreach (Student item in students)
-            {
-                Console.WriteLine(item.ID +" "+item.Name);
-            }
-
-            //LINQ--Language Integrated Query---
-            int count = students.Count();
-            Console.WriteLine(count); 
-
-           // Student result=students.Where(s=>s.ID== )
-            var resul = students.Where(s => s.ID == 101).ToList();
-
-            foreach (var item in resul)
-            {
-                Console.WriteLine(item.ID + " " + item.Name);
-            }
-
-            var resultWithName = students.Where(s => s.Name.Contains("R")).ToList();
-
-
-
-           
-
-            Console.WriteLine();
-
-
-    
+            calc obj = new calc();
+            obj.Divide();
 
             Console.ReadLine();
 
@@ -73,23 +20,86 @@ namespace JulyRadical
                
     }
 
-    class Student
+
+    class calc
     {
 
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public void Divide()
+        {
 
+            int a, b, r;
+            Console.WriteLine("enter a and b values");
+            a = Convert.ToInt32(Console.ReadLine());
+            b = Convert.ToInt32(Console.ReadLine());
+
+            try
+            {
+               // string v = null;
+                //string z = v.ToString();
+                MyMethod();
+                //r = a / b;
+                //Console.WriteLine(r);
+            }
+
+
+            catch (MyCustomException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            } 
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            catch (NullReferenceException ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("may be you have done some wrong input like zero so we cant process");
+
+            }
+
+            finally
+            { 
+            
+                //always executes--whether exceptions cimes or not it will always executed 
+            
+            
+            }
+
+
+          
+
+            Console.WriteLine("Program is about to exit");
+          
+
+        
+        }
+
+        private void MyMethod()
+        {
+            int i = 1;
+            if (i==1)
+            {
+                throw new MyCustomException();
+            }
+        }
 
     
-
+    
     }
 
+    class MyCustomException : Exception
+    {
+        public MyCustomException():base("This is my custom Message")
+        {
 
+        }
 
-    
-
-    
-
-   
+    }
    
 }
